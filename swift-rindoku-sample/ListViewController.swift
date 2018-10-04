@@ -11,7 +11,7 @@ import UIKit
 class ListViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
-    let items = ["a", "b", "c", "d"]
+    let data = ["a", "b", "c", "d"]
     let sections = ["1", "2", "3"]
     
     let cellId = "cell"
@@ -37,12 +37,12 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        newCell.textLabel?.text = items[indexPath.row]
+        newCell.textLabel?.text = data[indexPath.row]
         return newCell
     }
 }
