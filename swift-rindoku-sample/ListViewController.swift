@@ -45,4 +45,9 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         newCell.textLabel?.text = data[indexPath.row]
         return newCell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewController = DetailViewController()
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
 }
