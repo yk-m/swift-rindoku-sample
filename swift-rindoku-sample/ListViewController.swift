@@ -19,7 +19,8 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        let nib = UINib(nibName: String(describing: RepositoryCell.self), bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: cellId)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -41,8 +42,8 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let newCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        newCell.textLabel?.text = data[indexPath.row]
+        let newCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RepositoryCell
+        newCell.set(repositoryName: data[indexPath.row])
         return newCell
     }
     
