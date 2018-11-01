@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import WebKit
 
 class DetailViewController: UIViewController {
+    
+    @IBOutlet private weak var webView: WKWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let url = URL(string: "https://arbeit.nifty.com")!
+        webView.load(URLRequest(url: url))
     }
 
     override func didReceiveMemoryWarning() {
