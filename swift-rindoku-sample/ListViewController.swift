@@ -32,6 +32,32 @@ class ListViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        searchBar = {
+            guard let navigationBarFrame = navigationController?.navigationBar.bounds else {
+                return nil
+            }
+            let searchBar: UISearchBar = UISearchBar(frame: navigationBarFrame)
+            searchBar.delegate = self
+            searchBar.placeholder = "Search"
+            searchBar.showsCancelButton = true
+            searchBar.autocapitalizationType = .none
+            searchBar.keyboardType = .default
+            navigationItem.titleView = searchBar
+            navigationItem.titleView?.frame = searchBar.frame
+            searchBar.becomeFirstResponder()
+            return searchBar
+        }()
+        
+        let client = GitHubClient()
+        client.send(request: GitHubAPI.SearchRepositories(keyword: "Swift")) { [weak self] result in
+            switch result {
+            case .success(let response):
+                self?.items = response.items
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,4 +86,9 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         let detailViewController = DetailViewController(repository: items[indexPath.row])
         navigationController?.pushViewController(detailViewController, animated: true)
     }
+}
+
+// MARK: - UISearchBarDelegate
+extension ListViewController: UISearchBarDelegate {
+    
 }
