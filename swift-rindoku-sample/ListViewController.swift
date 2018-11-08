@@ -40,7 +40,6 @@ class ListViewController: UIViewController {
             let searchBar: UISearchBar = UISearchBar(frame: navigationBarFrame)
             searchBar.delegate = self
             searchBar.placeholder = "Search"
-            searchBar.showsCancelButton = true
             searchBar.autocapitalizationType = .none
             searchBar.keyboardType = .default
             navigationItem.titleView = searchBar
@@ -48,16 +47,6 @@ class ListViewController: UIViewController {
             searchBar.becomeFirstResponder()
             return searchBar
         }()
-        
-        let client = GitHubClient()
-        client.send(request: GitHubAPI.SearchRepositories(keyword: "Swift")) { [weak self] result in
-            switch result {
-            case .success(let response):
-                self?.items = response.items
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,5 +79,21 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - UISearchBarDelegate
 extension ListViewController: UISearchBarDelegate {
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text else {
+            return
+        }
+        
+        let client = GitHubClient()
+        client.send(request: GitHubAPI.SearchRepositories(keyword: searchText)) { [weak self] result in
+            switch result {
+            case .success(let response):
+                self?.items = response.items
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        searchBar.endEditing(true)
+    }
 }
