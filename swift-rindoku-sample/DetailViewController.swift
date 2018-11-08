@@ -12,11 +12,24 @@ import WebKit
 class DetailViewController: UIViewController {
     
     @IBOutlet private weak var webView: WKWebView!
-
+    
+    public var repository: Repository
+    
+    init(repository: Repository) {
+        self.repository = repository
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let url = URL(string: "https://arbeit.nifty.com")!
+        
+        navigationItem.title = repository.fullName
+        
+        let url = URL(string: repository.htmlUrl)!
         webView.load(URLRequest(url: url))
     }
 

@@ -11,8 +11,16 @@ import UIKit
 class ListViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
-    let data = ["a", "b", "c", "d"]
-    let sections = ["1", "2", "3"]
+    
+    var searchBar: UISearchBar!
+    
+    var items: [Repository] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     let cellId = "cell"
 
@@ -37,26 +45,19 @@ class ListViewController: UIViewController {
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section]
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RepositoryCell
-        newCell.set(repositoryName: data[indexPath.row])
+        newCell.set(repositoryName: items[indexPath.row].fullName)
         return newCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailViewController = DetailViewController()
+        let detailViewController = DetailViewController(repository: items[indexPath.row])
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
