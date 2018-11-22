@@ -10,9 +10,23 @@ import UIKit
 
 class ListViewController: UIViewController {
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView! {
+        didSet {
+            let nib = UINib(nibName: String(describing: RepositoryCell.self), bundle: nil)
+            tableView.register(nib, forCellReuseIdentifier: cellId)
+            
+            tableView.delegate = self
+            tableView.dataSource = self
+        }
+    }
     
-    var searchBar: UISearchBar!
+    private lazy var searchController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        return searchController
+    }()
+    
+    private let refreshControl = UIRefreshControl()
     
     var items: [Repository] = [] {
         didSet {
@@ -22,31 +36,24 @@ class ListViewController: UIViewController {
         }
     }
     
+    var searchText = "" {
+        didSet {
+            DispatchQueue.main.async {
+                self.refresh()
+            }
+        }
+    }
+    
     let cellId = "cell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: String(describing: RepositoryCell.self), bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: cellId)
+        definesPresentationContext = true
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        searchBar = {
-            guard let navigationBarFrame = navigationController?.navigationBar.bounds else {
-                return nil
-            }
-            let searchBar: UISearchBar = UISearchBar(frame: navigationBarFrame)
-            searchBar.delegate = self
-            searchBar.placeholder = "Search"
-            searchBar.autocapitalizationType = .none
-            searchBar.keyboardType = .default
-            navigationItem.titleView = searchBar
-            navigationItem.titleView?.frame = searchBar.frame
-            searchBar.becomeFirstResponder()
-            return searchBar
-        }()
+        navigationItem.title = "Search"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +61,28 @@ class ListViewController: UIViewController {
         
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
+    func refresh() {
+        let client = GitHubClient()
+        client.send(request: GitHubAPI.SearchRepositories(keyword: searchText)) { [weak self] result in
+            switch result {
+            case .success(let response):
+                self?.items = response.items
+            case .failure(.connectionError(_)):
+                self?.present({
+                    let alert = UIAlertController(title: "通信に失敗しました", message: "ネットワーク接続を確認してください。", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    return alert
+                }(), animated: true, completion: nil)
+            case .failure(_):
+                self?.present({
+                    let alert = UIAlertController(title: "ただいま混み合っています", message: "時間をあけて再度お試しください。", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    return alert
+                }(), animated: true, completion: nil)
+            }
         }
     }
 }
@@ -84,16 +113,7 @@ extension ListViewController: UISearchBarDelegate {
             return
         }
         
-        let client = GitHubClient()
-        client.send(request: GitHubAPI.SearchRepositories(keyword: searchText)) { [weak self] result in
-            switch result {
-            case .success(let response):
-                self?.items = response.items
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        searchBar.endEditing(true)
+        self.searchText = searchText
+        searchController.dismiss(animated: true)
     }
 }
