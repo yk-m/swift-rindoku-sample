@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = navigationController
+        window.tintColor = .main
         self.window = window
         
         window.makeKeyAndVisible()

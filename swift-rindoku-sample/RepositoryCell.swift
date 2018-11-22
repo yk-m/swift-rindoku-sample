@@ -14,7 +14,7 @@ class RepositoryCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        label.textColor = .lightGray
+        label.textColor = .main
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
