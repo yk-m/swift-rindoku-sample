@@ -76,9 +76,15 @@ class ListViewController: UIViewController {
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     return alert
                 }(), animated: true, completion: nil)
-            case .failure(_):
+            case .failure(.responseParseError):
                 self?.present({
                     let alert = UIAlertController(title: "ただいま混み合っています", message: "時間をあけて再度お試しください。", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    return alert
+                }(), animated: true, completion: nil)
+            case .failure(.apiError(let error)):
+                self?.present({
+                    let alert = UIAlertController(title: "エラーが発生しました", message: error.message, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                     return alert
                 }(), animated: true, completion: nil)
