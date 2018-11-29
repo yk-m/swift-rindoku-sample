@@ -26,9 +26,7 @@ class ListViewController: UIViewController {
         return searchController
     }()
     
-    private let refreshControl = UIRefreshControl()
-    
-    var items: [Repository] = [] {
+    private var items: [Repository] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -36,15 +34,15 @@ class ListViewController: UIViewController {
         }
     }
     
-    var searchText = "" {
+    private var searchText = "" {
         didSet {
-            DispatchQueue.main.async {
-                self.refresh()
-            }
+            refresh()
+            interactor.add(keyword: searchText)
         }
     }
     
-    let cellId = "cell"
+    private let cellId = "cell"
+    private let interactor = SearchHistoryInteractor()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +52,11 @@ class ListViewController: UIViewController {
         navigationItem.title = "Search"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        
+        if let record = interactor.fetchLatestRecord() {
+            self.searchText = record.keyword
+            searchController.searchBar.text = record.keyword
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,7 +67,7 @@ class ListViewController: UIViewController {
         }
     }
     
-    func refresh() {
+    private func refresh() {
         let client = GitHubClient()
         client.send(request: GitHubAPI.SearchRepositories(keyword: searchText)) { [weak self] result in
             switch result {
@@ -115,11 +118,14 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - UISearchBarDelegate
 extension ListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.text else {
+        defer {
+            searchController.dismiss(animated: true)
+        }
+        guard let searchText = searchBar.text,
+            searchText != "" else {
             return
         }
         
         self.searchText = searchText
-        searchController.dismiss(animated: true)
     }
 }

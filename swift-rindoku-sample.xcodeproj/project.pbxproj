@@ -23,6 +23,8 @@
 		215B6A5C21782D5E00C64791 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215B6A5B21782D5E00C64791 /* SearchResponse.swift */; };
 		215B6A5E21782DE000C64791 /* GitHubClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215B6A5D21782DE000C64791 /* GitHubClientError.swift */; };
 		215B6A6021782E4700C64791 /* GitHubAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215B6A5F21782E4700C64791 /* GitHubAPIError.swift */; };
+		217C565F21A64DFC00B15FA2 /* SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217C565E21A64DFC00B15FA2 /* SearchHistory.swift */; };
+		217C566121A64EA100B15FA2 /* SearchHistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217C566021A64EA100B15FA2 /* SearchHistoryInteractor.swift */; };
 		218E9C6F215C7EEE007CF377 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218E9C6D215C7EEE007CF377 /* DetailViewController.swift */; };
 		218E9C70215C7EEE007CF377 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 218E9C6E215C7EEE007CF377 /* DetailViewController.xib */; };
 		21ABE8FE21815E6A001644D1 /* GitHubRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ABE8FD21815E6A001644D1 /* GitHubRequest.swift */; };
@@ -48,6 +50,8 @@
 		215B6A5B21782D5E00C64791 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		215B6A5D21782DE000C64791 /* GitHubClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubClientError.swift; sourceTree = "<group>"; };
 		215B6A5F21782E4700C64791 /* GitHubAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPIError.swift; sourceTree = "<group>"; };
+		217C565E21A64DFC00B15FA2 /* SearchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistory.swift; sourceTree = "<group>"; };
+		217C566021A64EA100B15FA2 /* SearchHistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryInteractor.swift; sourceTree = "<group>"; };
 		218E9C6D215C7EEE007CF377 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		218E9C6E215C7EEE007CF377 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		21ABE8FD21815E6A001644D1 /* GitHubRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRequest.swift; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 		17DFDD61211E7BE40060A993 /* swift-rindoku-sample */ = {
 			isa = PBXGroup;
 			children = (
+				217C565D21A64D8D00B15FA2 /* Entity */,
 				21D58A232193DF4000778B41 /* Environment */,
 				215B6A532178286900C64791 /* GitHubClient */,
 				17DFDD62211E7BE40060A993 /* AppDelegate.swift */,
@@ -96,6 +101,7 @@
 				218E9C6E215C7EEE007CF377 /* DetailViewController.xib */,
 				210CC90C2165B1D1007D4EF4 /* RepositoryCell.swift */,
 				210CC90D2165B1D1007D4EF4 /* RepositoryCell.xib */,
+				217C566021A64EA100B15FA2 /* SearchHistoryInteractor.swift */,
 			);
 			path = "swift-rindoku-sample";
 			sourceTree = "<group>";
@@ -138,6 +144,14 @@
 				215B6A5B21782D5E00C64791 /* SearchResponse.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		217C565D21A64D8D00B15FA2 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				217C565E21A64DFC00B15FA2 /* SearchHistory.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		21D58A232193DF4000778B41 /* Environment */ = {
@@ -229,6 +243,8 @@
 				218E9C6F215C7EEE007CF377 /* DetailViewController.swift in Sources */,
 				215B6A5A21782CF700C64791 /* Repository.swift in Sources */,
 				210F6D26218A97B100FFE5D9 /* GitHubAPI.swift in Sources */,
+				217C566121A64EA100B15FA2 /* SearchHistoryInteractor.swift in Sources */,
+				217C565F21A64DFC00B15FA2 /* SearchHistory.swift in Sources */,
 				17DFDD65211E7BE40060A993 /* ListViewController.swift in Sources */,
 				17DFDD63211E7BE40060A993 /* AppDelegate.swift in Sources */,
 				214F9024219D149000A0178A /* UIRefreshControl+extension.swift in Sources */,
