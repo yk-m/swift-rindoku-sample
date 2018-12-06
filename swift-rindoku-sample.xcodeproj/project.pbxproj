@@ -25,10 +25,14 @@
 		215B6A6021782E4700C64791 /* GitHubAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215B6A5F21782E4700C64791 /* GitHubAPIError.swift */; };
 		217C565F21A64DFC00B15FA2 /* SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217C565E21A64DFC00B15FA2 /* SearchHistory.swift */; };
 		217C566121A64EA100B15FA2 /* SearchHistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217C566021A64EA100B15FA2 /* SearchHistoryInteractor.swift */; };
+		218D601821AF841B009C57D0 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218D601721AF841B009C57D0 /* RootRouter.swift */; };
+		218D601B21AF8525009C57D0 /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218D601A21AF8525009C57D0 /* ListRouter.swift */; };
+		218D601E21AF8656009C57D0 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218D601D21AF8656009C57D0 /* ListPresenter.swift */; };
 		218E9C6F215C7EEE007CF377 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218E9C6D215C7EEE007CF377 /* DetailViewController.swift */; };
 		218E9C70215C7EEE007CF377 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 218E9C6E215C7EEE007CF377 /* DetailViewController.xib */; };
 		21ABE8FE21815E6A001644D1 /* GitHubRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ABE8FD21815E6A001644D1 /* GitHubRequest.swift */; };
 		21D58A252193DFB000778B41 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D58A242193DFB000778B41 /* UIColor+extension.swift */; };
+		4E93483E28F7D86D7EE44572 /* Pods_swift_rindoku_sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958C8B6AB653E9250ACD53A4 /* Pods_swift_rindoku_sample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,10 +56,16 @@
 		215B6A5F21782E4700C64791 /* GitHubAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPIError.swift; sourceTree = "<group>"; };
 		217C565E21A64DFC00B15FA2 /* SearchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistory.swift; sourceTree = "<group>"; };
 		217C566021A64EA100B15FA2 /* SearchHistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryInteractor.swift; sourceTree = "<group>"; };
+		218D601721AF841B009C57D0 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		218D601A21AF8525009C57D0 /* ListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
+		218D601D21AF8656009C57D0 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		218E9C6D215C7EEE007CF377 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		218E9C6E215C7EEE007CF377 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		21ABE8FD21815E6A001644D1 /* GitHubRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRequest.swift; sourceTree = "<group>"; };
 		21D58A242193DFB000778B41 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
+		958C8B6AB653E9250ACD53A4 /* Pods_swift_rindoku_sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_rindoku_sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B87F0B1BFC6D754E732A6AC5 /* Pods-swift-rindoku-sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-rindoku-sample.release.xcconfig"; path = "Pods/Target Support Files/Pods-swift-rindoku-sample/Pods-swift-rindoku-sample.release.xcconfig"; sourceTree = "<group>"; };
+		E3CAA060A1230C9C6240BD3A /* Pods-swift-rindoku-sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift-rindoku-sample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift-rindoku-sample/Pods-swift-rindoku-sample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E93483E28F7D86D7EE44572 /* Pods_swift_rindoku_sample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +85,8 @@
 			children = (
 				17DFDD61211E7BE40060A993 /* swift-rindoku-sample */,
 				17DFDD60211E7BE40060A993 /* Products */,
+				5725D3221D9025BC2FDA881B /* Pods */,
+				7B2D572C64FDD7843BF0A4AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,22 +101,22 @@
 		17DFDD61211E7BE40060A993 /* swift-rindoku-sample */ = {
 			isa = PBXGroup;
 			children = (
+				21BBC06721B8BFC800A9148C /* Application */,
+				21BBC06621B8BF9C00A9148C /* Data */,
+				218D601621AF83DA009C57D0 /* Scenes */,
 				217C565D21A64D8D00B15FA2 /* Entity */,
 				21D58A232193DF4000778B41 /* Environment */,
-				215B6A532178286900C64791 /* GitHubClient */,
-				17DFDD62211E7BE40060A993 /* AppDelegate.swift */,
-				17DFDD64211E7BE40060A993 /* ListViewController.swift */,
-				17DFDD74211E7D840060A993 /* ListViewController.xib */,
-				17DFDD69211E7BF10060A993 /* Assets.xcassets */,
-				17DFDD6B211E7BF10060A993 /* LaunchScreen.storyboard */,
-				17DFDD6E211E7BF10060A993 /* Info.plist */,
-				218E9C6D215C7EEE007CF377 /* DetailViewController.swift */,
-				218E9C6E215C7EEE007CF377 /* DetailViewController.xib */,
-				210CC90C2165B1D1007D4EF4 /* RepositoryCell.swift */,
-				210CC90D2165B1D1007D4EF4 /* RepositoryCell.xib */,
-				217C566021A64EA100B15FA2 /* SearchHistoryInteractor.swift */,
 			);
 			path = "swift-rindoku-sample";
+			sourceTree = "<group>";
+		};
+		215076D921B8C18F00564E7C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				210CC90C2165B1D1007D4EF4 /* RepositoryCell.swift */,
+				210CC90D2165B1D1007D4EF4 /* RepositoryCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		215B6A532178286900C64791 /* GitHubClient */ = {
@@ -154,6 +167,73 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		218D601621AF83DA009C57D0 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				21BBC06921B8BFF900A9148C /* Detail */,
+				218D601921AF8518009C57D0 /* List */,
+				218D601721AF841B009C57D0 /* RootRouter.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		218D601921AF8518009C57D0 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				218D601C21AF861F009C57D0 /* Presentation */,
+				218D601A21AF8525009C57D0 /* ListRouter.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		218D601C21AF861F009C57D0 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				21BBC06821B8BFE400A9148C /* View */,
+				218D601D21AF8656009C57D0 /* ListPresenter.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		21BBC06621B8BF9C00A9148C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				215B6A532178286900C64791 /* GitHubClient */,
+				217C566021A64EA100B15FA2 /* SearchHistoryInteractor.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		21BBC06721B8BFC800A9148C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				17DFDD62211E7BE40060A993 /* AppDelegate.swift */,
+				17DFDD69211E7BF10060A993 /* Assets.xcassets */,
+				17DFDD6B211E7BF10060A993 /* LaunchScreen.storyboard */,
+				17DFDD6E211E7BF10060A993 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		21BBC06821B8BFE400A9148C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				215076D921B8C18F00564E7C /* Cell */,
+				17DFDD64211E7BE40060A993 /* ListViewController.swift */,
+				17DFDD74211E7D840060A993 /* ListViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		21BBC06921B8BFF900A9148C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				218E9C6D215C7EEE007CF377 /* DetailViewController.swift */,
+				218E9C6E215C7EEE007CF377 /* DetailViewController.xib */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		21D58A232193DF4000778B41 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +243,23 @@
 			path = Environment;
 			sourceTree = "<group>";
 		};
+		5725D3221D9025BC2FDA881B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E3CAA060A1230C9C6240BD3A /* Pods-swift-rindoku-sample.debug.xcconfig */,
+				B87F0B1BFC6D754E732A6AC5 /* Pods-swift-rindoku-sample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7B2D572C64FDD7843BF0A4AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				958C8B6AB653E9250ACD53A4 /* Pods_swift_rindoku_sample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -170,9 +267,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17DFDD71211E7BF10060A993 /* Build configuration list for PBXNativeTarget "swift-rindoku-sample" */;
 			buildPhases = (
+				71786E3AB59A90C047B39A49 /* [CP] Check Pods Manifest.lock */,
 				17DFDD5B211E7BE40060A993 /* Sources */,
 				17DFDD5C211E7BE40060A993 /* Frameworks */,
 				17DFDD5D211E7BE40060A993 /* Resources */,
+				2A8CAFAD5A4FCFAF63A01C0A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -232,6 +331,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2A8CAFAD5A4FCFAF63A01C0A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-swift-rindoku-sample/Pods-swift-rindoku-sample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swift-rindoku-sample/Pods-swift-rindoku-sample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71786E3AB59A90C047B39A49 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-swift-rindoku-sample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		17DFDD5B211E7BE40060A993 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -241,10 +389,13 @@
 				21D58A252193DFB000778B41 /* UIColor+extension.swift in Sources */,
 				215B6A5C21782D5E00C64791 /* SearchResponse.swift in Sources */,
 				218E9C6F215C7EEE007CF377 /* DetailViewController.swift in Sources */,
+				218D601B21AF8525009C57D0 /* ListRouter.swift in Sources */,
+				218D601821AF841B009C57D0 /* RootRouter.swift in Sources */,
 				215B6A5A21782CF700C64791 /* Repository.swift in Sources */,
 				210F6D26218A97B100FFE5D9 /* GitHubAPI.swift in Sources */,
 				217C566121A64EA100B15FA2 /* SearchHistoryInteractor.swift in Sources */,
 				217C565F21A64DFC00B15FA2 /* SearchHistory.swift in Sources */,
+				218D601E21AF8656009C57D0 /* ListPresenter.swift in Sources */,
 				17DFDD65211E7BE40060A993 /* ListViewController.swift in Sources */,
 				17DFDD63211E7BE40060A993 /* AppDelegate.swift in Sources */,
 				214F9024219D149000A0178A /* UIRefreshControl+extension.swift in Sources */,
@@ -386,11 +537,12 @@
 		};
 		17DFDD72211E7BF10060A993 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3CAA060A1230C9C6240BD3A /* Pods-swift-rindoku-sample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R5FG3RJPRN;
-				INFOPLIST_FILE = "swift-rindoku-sample/Info.plist";
+				INFOPLIST_FILE = "swift-rindoku-sample/Application/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hicka04.swift-rindoku-sample";
@@ -402,11 +554,12 @@
 		};
 		17DFDD73211E7BF10060A993 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B87F0B1BFC6D754E732A6AC5 /* Pods-swift-rindoku-sample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R5FG3RJPRN;
-				INFOPLIST_FILE = "swift-rindoku-sample/Info.plist";
+				INFOPLIST_FILE = "swift-rindoku-sample/Application/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hicka04.swift-rindoku-sample";
