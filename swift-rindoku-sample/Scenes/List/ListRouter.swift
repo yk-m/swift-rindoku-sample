@@ -17,12 +17,14 @@ class ListRouter {
     }
     
     static func assembleModules() -> UIViewController {
-        let view = ListViewController()
+        let searchHistoryView = SearchHistoryViewController()
+        let view = ListViewController(searchHistoryView: searchHistoryView)
         let interactor = SearchHistoryInteractor()
         let router = ListRouter(viewController: view)
         let presenter = ListPresenter(router: router, view: view, interactor: interactor)
         
         view.presenter = presenter
+        searchHistoryView.delegate = view
         
         return view
     }

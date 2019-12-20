@@ -17,6 +17,9 @@
 		210F6D22218A979F00FFE5D9 /* GitHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F6D21218A979F00FFE5D9 /* GitHubClient.swift */; };
 		210F6D25218A97B100FFE5D9 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F6D23218A97B100FFE5D9 /* HTTPMethod.swift */; };
 		210F6D26218A97B100FFE5D9 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F6D24218A97B100FFE5D9 /* GitHubAPI.swift */; };
+		2127D02121C1FA860022DBF5 /* SearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2127D01F21C1FA860022DBF5 /* SearchHistoryViewController.swift */; };
+		2127D02221C1FA860022DBF5 /* SearchHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2127D02021C1FA860022DBF5 /* SearchHistoryViewController.xib */; };
+		2127D02621C1FB3C0022DBF5 /* SearchHistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2127D02521C1FB3C0022DBF5 /* SearchHistoryRouter.swift */; };
 		214F9024219D149000A0178A /* UIRefreshControl+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214F9023219D149000A0178A /* UIRefreshControl+extension.swift */; };
 		215B6A58217828DA00C64791 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215B6A57217828DA00C64791 /* User.swift */; };
 		215B6A5A21782CF700C64791 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215B6A5921782CF700C64791 /* Repository.swift */; };
@@ -48,6 +51,9 @@
 		210F6D21218A979F00FFE5D9 /* GitHubClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubClient.swift; sourceTree = "<group>"; };
 		210F6D23218A97B100FFE5D9 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		210F6D24218A97B100FFE5D9 /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
+		2127D01F21C1FA860022DBF5 /* SearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewController.swift; sourceTree = "<group>"; };
+		2127D02021C1FA860022DBF5 /* SearchHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryViewController.xib; sourceTree = "<group>"; };
+		2127D02521C1FB3C0022DBF5 /* SearchHistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryRouter.swift; sourceTree = "<group>"; };
 		214F9023219D149000A0178A /* UIRefreshControl+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+extension.swift"; sourceTree = "<group>"; };
 		215B6A57217828DA00C64791 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		215B6A5921782CF700C64791 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -110,6 +116,31 @@
 			path = "swift-rindoku-sample";
 			sourceTree = "<group>";
 		};
+		2127D02321C1FB020022DBF5 /* SearchHistory */ = {
+			isa = PBXGroup;
+			children = (
+				2127D02421C1FB120022DBF5 /* Presentation */,
+				2127D02521C1FB3C0022DBF5 /* SearchHistoryRouter.swift */,
+			);
+			path = SearchHistory;
+			sourceTree = "<group>";
+		};
+		2127D02421C1FB120022DBF5 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		2127D02921C1FD710022DBF5 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				2127D01F21C1FA860022DBF5 /* SearchHistoryViewController.swift */,
+				2127D02021C1FA860022DBF5 /* SearchHistoryViewController.xib */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		215076D921B8C18F00564E7C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +201,7 @@
 		218D601621AF83DA009C57D0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2127D02321C1FB020022DBF5 /* SearchHistory */,
 				21BBC06921B8BFF900A9148C /* Detail */,
 				218D601921AF8518009C57D0 /* List */,
 				218D601721AF841B009C57D0 /* RootRouter.swift */,
@@ -218,6 +250,7 @@
 		21BBC06821B8BFE400A9148C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2127D02921C1FD710022DBF5 /* SubView */,
 				215076D921B8C18F00564E7C /* Cell */,
 				17DFDD64211E7BE40060A993 /* ListViewController.swift */,
 				17DFDD74211E7D840060A993 /* ListViewController.xib */,
@@ -324,6 +357,7 @@
 				17DFDD6D211E7BF10060A993 /* LaunchScreen.storyboard in Resources */,
 				17DFDD6A211E7BF10060A993 /* Assets.xcassets in Resources */,
 				17DFDD75211E7D840060A993 /* ListViewController.xib in Resources */,
+				2127D02221C1FA860022DBF5 /* SearchHistoryViewController.xib in Resources */,
 				210CC90F2165B1D1007D4EF4 /* RepositoryCell.xib in Resources */,
 				218E9C70215C7EEE007CF377 /* DetailViewController.xib in Resources */,
 			);
@@ -390,7 +424,9 @@
 				215B6A5C21782D5E00C64791 /* SearchResponse.swift in Sources */,
 				218E9C6F215C7EEE007CF377 /* DetailViewController.swift in Sources */,
 				218D601B21AF8525009C57D0 /* ListRouter.swift in Sources */,
+				2127D02121C1FA860022DBF5 /* SearchHistoryViewController.swift in Sources */,
 				218D601821AF841B009C57D0 /* RootRouter.swift in Sources */,
+				2127D02621C1FB3C0022DBF5 /* SearchHistoryRouter.swift in Sources */,
 				215B6A5A21782CF700C64791 /* Repository.swift in Sources */,
 				210F6D26218A97B100FFE5D9 /* GitHubAPI.swift in Sources */,
 				217C566121A64EA100B15FA2 /* SearchHistoryInteractor.swift in Sources */,

@@ -7,21 +7,36 @@
 //
 
 import Foundation
+import RealmSwift
 
 class SearchHistoryInteractor {
     
+    let realm: Realm = {
+        return try! Realm()
+    }()
+    
     func add(keyword: String) {
-        let history = SearchHistory(date: Date(), keyword: keyword)
+        if let oldRecord = realm.objects(SearchHistory.self).filter("keyword = %@", keyword).first {
+            try! realm.write {
+                oldRecord.date = Date()
+            }
+            return
+        }
         
-        let data = try? JSONEncoder().encode(history)
-        UserDefaults.standard.set(data, forKey:"search_history")
+        let newRecord = SearchHistory()
+        newRecord.keyword = keyword
+        
+        try! realm.write {
+            realm.add(newRecord)
+        }
     }
     
     func fetchLatestRecord() -> SearchHistory? {
-        guard let data = UserDefaults.standard.data(forKey: "search_history") else {
-            return nil
-        }
-        
-        return try? JSONDecoder().decode(SearchHistory.self, from: data)
+        let realm = try! Realm()
+        return realm.objects(SearchHistory.self).sorted(byKeyPath: "date", ascending: false).first
+    }
+    
+    func fetchRecords() -> [SearchHistory]? {
+        return Array(realm.objects(SearchHistory.self).sorted(byKeyPath: "date", ascending: false))
     }
 }

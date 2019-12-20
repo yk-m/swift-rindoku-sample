@@ -35,10 +35,18 @@ extension ListPresenter {
             self.searchText = record.keyword
             view?.set(searchText: record.keyword)
         }
+        
+        if let records = interactor.fetchRecords() {
+            view?.set(history: records)
+        }
     }
     
     func set(searchText: String) {
         self.searchText = searchText
+        
+        if let records = interactor.fetchRecords() {
+            view?.set(history: records)
+        }
     }
     
     func refresh() {

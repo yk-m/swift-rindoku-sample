@@ -11,6 +11,7 @@ import UIKit
 class ListViewController: UIViewController {
     
     var presenter: ListPresenter!
+    private let searchHistoryView: SearchHistoryViewController
     
     private let cellId = "cell"
     
@@ -25,7 +26,7 @@ class ListViewController: UIViewController {
     }
     
     private lazy var searchController: UISearchController = {
-        let searchController = UISearchController(searchResultsController: nil)
+        let searchController = UISearchController(searchResultsController: searchHistoryView)
         searchController.searchBar.delegate = self
         return searchController
     }()
@@ -36,6 +37,16 @@ class ListViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    init(searchHistoryView: SearchHistoryViewController) {
+        self.searchHistoryView = searchHistoryView
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -99,6 +110,10 @@ extension ListViewController {
         searchController.searchBar.text = searchText
     }
     
+    func set(history: [SearchHistory]) {
+        searchHistoryView.set(items: history)
+    }
+    
     func set(items: [Repository]) {
         self.items = items
     }
@@ -124,5 +139,13 @@ extension ListViewController {
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             return alert
         }(), animated: true, completion: nil)
+    }
+}
+
+extension ListViewController {
+    
+    func searchHistoryView(_ searchHistoryView: SearchHistoryViewController, didSelectRowAt history: SearchHistory) {
+        
+        presenter.set(searchText: history.keyword)
     }
 }
